@@ -6,4 +6,6 @@ RUN apt update && apt install mariadb-server -y
 
 COPY script.sh .
 
-CMD ["bash", "script.sh" ]
+ENTRYPOINT ["bash", "script.sh" ]
+
+CMD [ "mysqld_safe" ]
