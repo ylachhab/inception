@@ -3,6 +3,7 @@ version: '3.8'
 services:
     nginx:
       build: ./requirements/nginx
+      env_file: .env
       image: nginx:ylachhab
       container_name: nginx
       ports:
@@ -16,6 +17,7 @@ services:
       restart: on-failure
     mariadb:
       build: ./requirements/mariadb
+      env_file: .env
       image: mariadb:ylachhab
       container_name: mariadb
       restart: on-failure
@@ -27,6 +29,7 @@ services:
       -  "3306"
     wordpress:
       build: ./requirements/wordpress
+      env_file: .env
       image: wordpress:ylachhab
       container_name: wordpress
       volumes:

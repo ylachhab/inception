@@ -10,16 +10,16 @@ mysqld_safe &
 		#			that it runs with proper error handling and logging
 		# & : allowing you to continue using the terminal while the process runs in the background.
 
-sleep 10
+sleep 5
 
-mysql -e "create database if not exists wp_db;
-	create user if not exists 'ylachhab'@'%' identified by '2002';
-	GRANT ALL PRIVILEGES ON wp_db.* TO 'ylachhab'@'%'  IDENTIFIED BY '2002';
-	create user if not exists 'root'@'localhost' identified by '123';
+mysql -e "create database if not exists ${MARIADB_DATABASE};
+	create user if not exists '${MARIADB_USER}'@'%' identified by '${MARIADB_PASSWORD}';
+	GRANT ALL PRIVILEGES ON ${MARIADB_DATABASE}.* TO '${MARIADB_USER}'@'%'  IDENTIFIED BY '${MARIADB_PASSWORD}';
+	create user if not exists 'root'@'localhost' identified by '${MARIADB_ROOT_PASSWORD}';
 	flush privileges;"
 
 # service mariadb stop
-mysqladmin -u root -p"123" shutdown
+mysqladmin -u root -p"${MARIADB_ROOT_PASSWORD}" shutdown
 mysqld_safe
 
 exec $@

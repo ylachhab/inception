@@ -4,7 +4,7 @@ echo "listen = wordpress:9000" >> /etc/php/7.3/fpm/pool.d/www.conf
 
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
-sleep 15
+sleep 5
 
 chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
@@ -14,8 +14,8 @@ mv wp-cli.phar /usr/local/bin/wp
 # done
 
 wp core download --allow-root
-wp config create --dbname=wp_db --dbuser=ylachhab --dbpass=2002 --dbhost=mariadb:3306 --allow-root
-wp core install --url=localhost --title="Title" --admin_user=admin --admin_password=123 --admin_email=admin@gmail.com --allow-root
-wp user create issam issam@gmail.com --role=author --allow-root
+wp config create --dbname=${MARIADB_DATABASE} --dbuser=${MARIADB_USER} --dbpass=${MARIADB_PASSWORD} --dbhost=mariadb:3306 --allow-root
+wp core install --url=localhost --title="Title" --admin_user=${ADMIN_USER} --admin_password=${ADMIN_PASSWORD} --admin_email=${ADMIN_EMAIL} --allow-root
+wp user create ${USER_NAME} ${USER_EMAIL} --role=author --allow-root
 
 exec $@

@@ -2,7 +2,7 @@ FROM debian:buster
 
 WORKDIR /var/www/html
 
-RUN apt update && apt install -y wget mariadb-client curl php php-fpm php-mysqlnd
+RUN apt update && apt install -y mariadb-client curl php php-fpm php-mysqlnd
 
 RUN mkdir -p /run/php
 

@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN apt update && apt install mariadb-server -y
 
-COPY script.sh .
+COPY tools/script.sh .
 
 ENTRYPOINT ["bash", "script.sh" ]
 
