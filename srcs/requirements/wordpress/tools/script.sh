@@ -1,6 +1,6 @@
 #! /bin/sh
 
-echo "listen = wordpress:9000" >> /etc/php/7.3/fpm/pool.d/www.conf
+echo "listen = wordpress:9000" >> /etc/php/7.4/fpm/pool.d/www.conf
 
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 

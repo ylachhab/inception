@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 
 WORKDIR /var/www/html
 
@@ -10,4 +10,4 @@ COPY tools/script.sh .
 
 ENTRYPOINT  [ "bash", "script.sh" ]
 
-CMD [ "/usr/sbin/php-fpm7.3", "-F" ]
+CMD [ "/usr/sbin/php-fpm7.4", "-F" ]
