@@ -18,4 +18,6 @@ down:
 clean:
 	docker-compose -f $(DOCKER_COMPOSE) down --rmi all --volumes --remove-orphans
 
+re: clean all
+
 .PHONY: build up down clean
